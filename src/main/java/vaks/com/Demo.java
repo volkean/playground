@@ -10,6 +10,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
@@ -24,7 +25,7 @@ public class Demo {
 		// jsonReadUrl();
 		// jsonReadAsClass();
 		// jsonReadModify();
-		// jsonStreamRead();
+		jsonStreamRead();
 		// jsonStreamWrite();
 		// jsonRead();
 		// jsonWrite();
@@ -83,14 +84,17 @@ public class Demo {
 	}
 
 	public static void jsonStreamRead() {
+		JsonFactory factory = new JsonFactory();
 		try {
-
-			JsonFactory factory = new JsonFactory();
-			JsonParser parser = factory.createParser(new File("c:\\Temp\\patient.json"));
+			JsonParser parser = factory
+					.createParser(new File(Demo.class.getClassLoader().getResource("patient.json").getPath()));
 			while (parser.nextToken() != null) {
 				JsonToken token = parser.getCurrentToken();
 				System.out.println(token);
 			}
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -123,7 +127,8 @@ public class Demo {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 		objectMapper.setDateFormat(dateFormat);
 		try {
-			Patient patient = objectMapper.readValue(new File("c:\\Temp\\patient.json"), Patient.class);
+			Patient patient = objectMapper.readValue(
+					new File(Demo.class.getClassLoader().getResource("patient.json").getPath()), Patient.class);
 			System.out.println(patient.getFirstName());
 			System.out.println(patient.getDateOfBirth());
 			System.out.println(patient.toString());
@@ -143,11 +148,14 @@ public class Demo {
 		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
 		Patient patient = new Patient();
-		patient.setFirstName("John");
+		patient.setFirstName("Johnson");
 		patient.setLastName("Oliver");
 
 		try {
-			objectMapper.writeValue(new File("c:\\Temp\\patient.json"), patient);
+			System.out.println(objectMapper.writeValueAsString(patient));
+			System.out.println(Demo.class.getClassLoader().getResource("patient.json").getPath());
+			objectMapper.writeValue(new File(Demo.class.getClassLoader().getResource("patient.json").getPath()),
+					patient);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

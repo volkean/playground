@@ -1,4 +1,4 @@
-package vaks.com;
+package vaks.com.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Patient 

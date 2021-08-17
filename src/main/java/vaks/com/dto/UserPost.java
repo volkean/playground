@@ -1,4 +1,4 @@
-package vaks.com;
+package vaks.com.dto;
 
 
 public class UserPost {

@@ -21,16 +21,16 @@ import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.server.handlers.Cookie;
 import io.undertow.util.Headers;
-import vaks.com.UserPost;
-import vaks.com.UserStat;
+import vaks.com.dto.UserPost;
+import vaks.com.dto.UserStat;
 
-public class RequestsProxy {
+public class RequestsProxyUndertow {
 
 	static Map<Integer, UserStat> userStatMap = new TreeMap<Integer, UserStat>();
 	static List<UserPost> userPostList = null;
 
 	public static void main(String args[]) throws Exception {
-		RequestsProxy requestsProxy = new RequestsProxy();
+		RequestsProxyUndertow requestsProxy = new RequestsProxyUndertow();
 		requestsProxy.serve();
 	}
 

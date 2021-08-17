@@ -1,4 +1,4 @@
-package vaks.com;
+package vaks.com.dto;
 import java.util.Date;
 
 public class UserStat {

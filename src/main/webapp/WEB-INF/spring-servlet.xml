@@ -12,9 +12,17 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- Provide support for component scanning -->
-	<context:component-scan base-package="vaks.com" />
+	<context:component-scan base-package="vaks.com, soshace.interview" />
 
 	<!--Provide support for conversion, formatting and validation -->
 	<mvc:annotation-driven />
+
+	<!-- View resolver -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="exposeContextBeansAsAttributes" value="true"/>
+		<!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />-->
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 
 </beans>  

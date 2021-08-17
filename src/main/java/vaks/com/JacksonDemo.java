@@ -19,7 +19,10 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-public class Demo {
+import vaks.com.dto.Patient;
+import vaks.com.dto.UserPost;
+
+public class JacksonDemo {
 
 	public static void main(String args[]) throws Exception {
 		// jsonReadUrl();
@@ -87,7 +90,7 @@ public class Demo {
 		JsonFactory factory = new JsonFactory();
 		try {
 			JsonParser parser = factory
-					.createParser(new File(Demo.class.getClassLoader().getResource("patient.json").getPath()));
+					.createParser(new File(JacksonDemo.class.getClassLoader().getResource("patient.json").getPath()));
 			while (parser.nextToken() != null) {
 				JsonToken token = parser.getCurrentToken();
 				System.out.println(token);
@@ -128,7 +131,7 @@ public class Demo {
 		objectMapper.setDateFormat(dateFormat);
 		try {
 			Patient patient = objectMapper.readValue(
-					new File(Demo.class.getClassLoader().getResource("patient.json").getPath()), Patient.class);
+					new File(JacksonDemo.class.getClassLoader().getResource("patient.json").getPath()), Patient.class);
 			System.out.println(patient.getFirstName());
 			System.out.println(patient.getDateOfBirth());
 			System.out.println(patient.toString());
@@ -153,8 +156,8 @@ public class Demo {
 
 		try {
 			System.out.println(objectMapper.writeValueAsString(patient));
-			System.out.println(Demo.class.getClassLoader().getResource("patient.json").getPath());
-			objectMapper.writeValue(new File(Demo.class.getClassLoader().getResource("patient.json").getPath()),
+			System.out.println(JacksonDemo.class.getClassLoader().getResource("patient.json").getPath());
+			objectMapper.writeValue(new File(JacksonDemo.class.getClassLoader().getResource("patient.json").getPath()),
 					patient);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

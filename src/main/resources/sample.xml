@@ -1,0 +1,50 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <bankaSubeOkuCevap xmlns="http://bs.tcmb.gov.tr/services/bankaSubeOku/">
+         <tumCvp>
+            <bankaSubeleri bKd="0001" sAdt="24">
+            	<banka sonIslemTuru="D" sonIslemZamani="2013-07-10 18:32:00.100">
+                  <bKd>0001</bKd>
+                  <bAd>TÜRKİYE CUMHURİYET MERKEZ BANKASI</bAd>
+                  <bIlAd>ANKARA</bIlAd>
+                  <adr>İSTİKLAL CAD. NO:10 06100 ULUS/ANKARA</adr>
+               </banka>
+               <sube sonIslemTuru="E" sonIslemZamani="2013-07-11 19:30:00.000">
+                  <bKd>0001</bKd>
+                  <sKd>90001</sKd>
+                  <sAd>DENEME SUBESI</sAd>
+                  <sIlKd>999</sIlKd>
+               </sube>
+               <sube sonIslemTuru="E" sonIslemZamani="2013-07-11 19:30:00.000">
+                  <bKd>0001</bKd>
+                  <sKd>90008</sKd>
+                  <sAd>EMKT MERKEZİ</sAd>
+                  <sIlKd>999</sIlKd>
+               </sube>
+               <sube sonIslemTuru="E" sonIslemZamani="2013-07-11 19:30:00.000">
+                  <bKd>0001</bKd>
+                  <sKd>99999</sKd>
+                  <sAd>EFT MERKEZİ</sAd>
+                  <sIlKd>999</sIlKd>
+               </sube>
+		</bankaSubeleri>
+		<bankaSubeleri bKd="0001" sAdt="24">
+			<banka sonIslemTuru="D" sonIslemZamani="2013-07-10 18:32:00.100">
+                  <bKd>4444</bKd>
+                  <bAd>SBM TEST BANKASI</bAd>
+                  <bIlAd>ANKARA</bIlAd>
+                  <adr>TEPE PRIME B49</adr>
+               </banka>
+               <sube sonIslemTuru="E" sonIslemZamani="2013-07-11 19:30:00.000">
+                  <bKd>0001</bKd>
+                  <sKd>90001</sKd>
+                  <sAd>DENEME SUBESI</sAd>
+                  <sIlKd>006</sIlKd>
+               </sube>
+               </sube>
+            </bankaSubeleri>
+         </tumCvp>
+      </bankaSubeOkuCevap>
+   </soapenv:Body>
+</soapenv:Envelope>
